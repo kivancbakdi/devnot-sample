@@ -1,0 +1,18 @@
+<span>Update Employee</span>
+
+<div *ngIf="employeeForm">
+  <form [formGroup]="employeeForm" (ngSubmit)="submit()">
+
+    <input placeholder="Name" formControlName="name" />
+    <input placeholder="Salary" formControlName="salary" />
+    <input placeholder="Age" formControlName="age" />
+
+    <button type="submit">Gönder</button>
+
+  </form>
+
+  <span>{{response}}</span>
+
+  <button (click)="deleteEmployee()">Sil</button>
+
+</div>

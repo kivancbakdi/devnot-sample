@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router'
+import { ActivatedRoute, Router } from '@angular/router'
 
 //Apis 
 import { EmployeeApi } from '../api/employee.api'
@@ -15,7 +15,7 @@ export class EmployeeDetailComponent implements OnInit {
   employee: Employee
 
   constructor(private activatedRoute: ActivatedRoute,
-    private employeeApi: EmployeeApi) { }
+    private employeeApi: EmployeeApi, private router: Router) { }
 
   ngOnInit() {
     this.activatedRoute.params.subscribe(param => {
@@ -27,14 +27,20 @@ export class EmployeeDetailComponent implements OnInit {
       }
 
     })
+
+    this.getEmployeeDetail(this.employee.id);
   }
 
   getEmployeeDetail(id: string) {
     this.employeeApi.getById(id).subscribe((response: Employee) => {
       this.employee = response
-    },(err) => {
+    }, (err) => {
       console.error('hata!')
     })
+  }
+
+  update() {
+    this.router.navigate(['employees/update/', this.employee.id])
   }
 
 }

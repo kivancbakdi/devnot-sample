@@ -1,5 +1,7 @@
 <span>Personeller</span>
 
+<input [(ngModel)]="searchTerm" (ngModelChange)="searchTermChanged()" />
+
 <ul>
   <li *ngFor="let employee of employees">
     <span>{{employee.employee_name}}</span>

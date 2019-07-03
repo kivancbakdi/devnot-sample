@@ -1,0 +1,13 @@
+<span>Create Employee</span>
+
+<form [formGroup]="employeeForm" (ngSubmit)="submit()">
+
+  <input placeholder="Name" formControlName="name" />
+  <input placeholder="Salary" formControlName="salary" />
+  <input placeholder="Age" formControlName="age" />
+
+  <button type="submit">Gönder</button>
+
+</form>
+
+<span>{{response}}</span>

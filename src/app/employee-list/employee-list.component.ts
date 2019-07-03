@@ -15,6 +15,7 @@ import { Employee } from '../models/employee'
 export class EmployeeListComponent implements OnInit {
 
   employees: Employee[]
+  searchTerm: string
 
   constructor(private employeeApi: EmployeeApi,
     private router: Router) { }
@@ -34,7 +35,11 @@ export class EmployeeListComponent implements OnInit {
   }
 
   showDetails(employee: Employee) {
-    this.router.navigate(['employees/', employee.id])
+    this.router.navigate(['employees/by/', employee.id])
+  }
+
+  searchTermChanged() {
+    console.log(this.searchTerm)
   }
 
 }
