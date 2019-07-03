@@ -1,0 +1,8 @@
+<span>Personeller</span>
+
+<ul>
+  <li *ngFor="let employee of employees">
+    <span>{{employee.employee_name}}</span>
+    <button (click)="showDetails(employee)">Detay</button>
+  </li>
+</ul>
